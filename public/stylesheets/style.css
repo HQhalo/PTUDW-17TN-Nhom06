@@ -15,10 +15,26 @@ body {
   min-height: 100%;
 }
 
-.body {
-  flex-grow: 1;
+.custom-container {
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
-a {
-  color: #00B7FF;
+.body {
+  flex-grow: 1;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	outline: inherit;
 }
