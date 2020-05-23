@@ -7,6 +7,6 @@ router.get('/', function(req, res, next) {
   
 });
 router.get('/thuthu',function(req,res,next){
-  res.render("thuThu_search",{layout: "layout"});
+  res.render("librarianSearch",{layout: "layoutLibrarian"});
 });
 module.exports = router;

@@ -1,0 +1,22 @@
+.board{
+  
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px ;
+    padding: 20px;
+    background-color: white;
+    height: 1000px;
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  
+.search-input{
+    background-color: #F2F3F5; 
+    padding: 10px; 
+    padding-right: 30px;
+    padding-left: 30px;
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
