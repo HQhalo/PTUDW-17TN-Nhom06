@@ -9,4 +9,7 @@ router.get('/', function(req, res, next) {
 router.get('/thuthu',function(req,res,next){
   res.render("librarianSearch",{layout: "layoutLibrarian"});
 });
+router.get('/thuthuadd',function(req,res,next){
+  res.render("librarianAddAccount",{layout: "layoutLibrarian"});
+});
 module.exports = router;
