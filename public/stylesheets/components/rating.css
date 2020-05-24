@@ -1,0 +1,20 @@
+.rating {
+    font-size: 24px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: .7em;
+}
+
+.rating > span.active:before,
+.rating > span.active ~ span:before,
+.rating.for-rate > span:hover:before,
+.rating.for-rate > span:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
+    color: #F1C40F;
+}

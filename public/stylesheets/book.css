@@ -1,0 +1,93 @@
+.book h1 {
+    font-weight: bold;
+}
+
+.book .what {
+    margin-top: 24px;
+    margin-bottom: 4px;
+}
+
+.book .panel {
+    background-color: white;
+    height: fit-content;
+    padding: 30px 60px;
+}
+
+.book .info {
+    height: 360px;
+    padding: 0;
+    margin: 0;
+}
+
+.book .info .cover {
+    height: 100%;
+    border-right: 1px solid #d4d1d1;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book .info .cover img {
+    height: 100%;
+    max-width: 100%;
+}
+
+.book .info .details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.book .info .details .title {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.book .info .details .feedback {
+    display: flex;
+    margin-bottom: 24px;
+    align-items: center;
+}
+
+.book .info .details .feedback a {
+    margin-left: 24px;
+}
+
+.book .info .details .more > span {
+    margin-right: 24px;
+}
+
+.book .info .details .booking {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid #d4d1d1;
+}
+
+.book .info .details .booking .remain span {
+    padding: 4px 12px;
+    border: 1px solid #d4d1d1;
+    font-weight: bold;
+}
+
+.book .info .details .booking .booking-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #FF3945;
+    color: white;
+}
+
+.book .comment-section .panel .comments .comment {
+    margin-bottom: 24px;
+}
+
+.book .comment-section .panel .opinion {
+    margin-top: 36px;
+}
+
+.book .comment-section .panel .opinion .area {
+    display: flex;
+}

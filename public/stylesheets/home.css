@@ -1,55 +1,17 @@
-.headline {
-    height: 200px;
-    max-width: 100%;
-    border-radius: 8px;
-}
-
-.headline .promote .carousel .carousel-inner .carousel-item.active {
-    display: flex;
-    margin-left: 0;
-}
-
-.headline .promote .carousel .carousel-inner .carousel-item .overview {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: large;
-    padding: 0 15px;
-}
-
-.headline .promote .carousel .carousel-inner .carousel-item .overview .title {
-    font-size: x-large;
-    font-weight: 600;
-}
-
-.headline .promote .carousel .carousel-inner .carousel-item .cover {
-    display: flex;
-    align-items: center;
-}
-
-.headline .promote .carousel .carousel-inner .carousel-item .cover img {
-    height: 80%;
-}
-
-.headline .intro {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 42px;
-    font-weight: bold;
-}
-
-.headline .intro a {
-    color: black;
-}
-
-.headline.container {
+.show-page {
+    flex-grow: 1;
     margin: 0;
+    padding-top: 20px;
 }
 
-.headline .promote #promote-list .carousel-indicators li {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin: 0 5px;
+.show-page .left,  .show-page .right{
+    padding: 0;
+}
+
+.show-page .left {
+    padding-right: 5px;
+}
+
+.show-page .right {
+    padding-left: 5px;
 }

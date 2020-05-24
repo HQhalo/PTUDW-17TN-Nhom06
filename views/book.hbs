@@ -1,0 +1,67 @@
+<link rel='stylesheet' href='/stylesheets/book.css' />
+<link rel='stylesheet' href='/stylesheets/components/comment.css' />
+<link rel='stylesheet' href='/stylesheets/components/rating.css' />
+<div class='book'>
+    <h1>Thư viện khoa CNTT</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Tất cả</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+                Học kinh doanh, làm chủ kinh tế
+            </li>
+        </ol>
+    </nav>
+    <div class='info panel row'>
+        <div class='cover col-3'>
+            <img src="/images/books/1.jpg" alt="Book cover">
+        </div>
+        <div class='details col-9'>
+            <p class='title'>Học kinh doanh, làm chủ kinh tế</p>
+            <div class='feedback'>
+                {{> rating}}
+                <a href='#comment-section'>(Xem thêm 69 đánh giá)</a>
+            </div>
+            <div class='more'>
+                <span><span class='text-bold'>Tác giả</span>: Huan Rose</span>
+                <span><span class='text-bold'>SKU</span>: 7820920626561</span>
+                <span><span class='text-bold'>ISBN</span>: 12345678</span>
+            </div>
+            <div class='booking'>
+                <div class='remain'>
+                    Số lượng còn lại: <span>3</span>
+                </div>
+                <a class='booking-btn'>
+                    Đăng ký mượn sách
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class='description'>
+        <h6 class='what'>MÔ TẢ SÁCH</h6>
+        <div class='panel'>
+            <p class='overview'>
+                Sách mới xuất bản của doanh nhân đại tài Huan Rose, nói về phương pháp luận có làm thì mới có ăn, không làm mà đòi có ăn thì ăn đất, ăn cát.
+            </p>
+            <q class='quote'>
+                Toàn bộ nội dung trong cuốn sách này hầu hết là những gì mình đã trải qua trong suốt quá trình kinh doanh online, từ một chàng sinh viên ra trường thất nghiệp, ăn chơi đến một anh chàng viết bài SEO, chạy quảng cáo Google adword, làm video, viết email dạo, chăm sóc Fanpage Facebook, và rồi có những dự án kinh doanh của riêng mình, hợp tác với những người khác, xây dựng hệ thống kinh doanh online cho người khác.
+            </q>
+        </div>
+    </div>
+    <div id='comment-section' class='comment-section'>
+        <h6 class='what'>ĐỘC GIẢ NHẬN XÉT</h6>
+        <div class='panel'>
+            <div class='comments'>
+                {{> comment}}
+                {{> comment}}
+                {{> comment}}
+            </div>
+            <div class='paging'>
+                {{> pagination}}
+            </div>
+            <div class='opinion row'>
+                <div class='placeholder col-2'></div>
+            <div class='area col-8'>{{> commentBox}}</div>
+            </div>
+        </div>
+    </div>
+</div>

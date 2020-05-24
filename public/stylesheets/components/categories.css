@@ -1,0 +1,25 @@
+.categories {
+    height: 100%;
+    border-radius: 4px;
+    padding: 20px 10px;
+}
+
+.categories .category {
+    display: block;
+    margin-bottom: 10px;
+    color: black;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.categories .category:hover {
+    color: darkslategray;
+}
+
+.categories .category.chosen {
+    background-color: #E8DEDE;
+}
+
+.categories .category.chosen:hover {
+    color: black;
+}
