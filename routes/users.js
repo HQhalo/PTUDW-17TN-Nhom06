@@ -12,4 +12,10 @@ router.get('/thuthu',function(req,res,next){
 router.get('/thuthuadd',function(req,res,next){
   res.render("librarianAddAccount",{layout: "layoutLibrarian"});
 });
+router.get('/thuthumuon',function(req,res,next){
+  res.render("librarianBorrowing",{layout: "layoutLibrarian"});
+});
+router.get('/themsach',function(req,res,next){
+  res.render("librarianAddBooks",{layout: "layoutLibrarian"});
+});
 module.exports = router;
