@@ -18,4 +18,13 @@ router.get('/thuthumuon',function(req,res,next){
 router.get('/themsach',function(req,res,next){
   res.render("librarianAddBooks",{layout: "layoutLibrarian"});
 });
+router.get('/yeucaumua',function(req,res,next){
+  res.render("librarianBuy",{layout: "layoutLibrarian"});
+});
+router.get("/trasach",function(req,res,next){
+  res.render("librarianGiveBack",{layout:"layoutLibrarian"});
+});
+router.get('/propose',function(req,res,next){
+  res.render("professorBookPropose",{layout:"layoutLibrarian"});
+});
 module.exports = router;
