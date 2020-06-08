@@ -1,0 +1,9 @@
+
+
+.describe{
+    height: 200px;
+    
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    border-radius: 5px;
+}

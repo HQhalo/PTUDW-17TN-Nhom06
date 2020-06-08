@@ -1,15 +1,4 @@
-.board{
-  
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-right: 20px ;
-    padding: 20px;
-    background-color: white;
-    height: 1000px;
-    border: 1px solid #BDBDBD;
-    box-sizing: border-box;
-    border-radius: 5px;
-  }
+
   
 .search-input{
     background-color: #F2F3F5; 
@@ -19,4 +8,29 @@
     border: 1px solid #BDBDBD;
     box-sizing: border-box;
     border-radius: 5px;
+}
+
+.list-group li{
+  background-color: #F2F3F5;
+  margin: 5px;
+  padding: 2px; 
+  
+  border: 1px solid #BDBDBD;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.list-group li img{
+  width: 45px;
+  height: 45px;
+  margin-left: 10px ;
+}
+.list-group li .name {
+  margin-left: 20px;
+}
+
+.list-group li .name {
+  margin-left: 20px;
+}
+.list-group li span {
+  margin-right: 10px;
 }
