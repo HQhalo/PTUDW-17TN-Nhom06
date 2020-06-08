@@ -7,24 +7,24 @@ router.get('/', function(req, res, next) {
   
 });
 router.get('/thuthu',function(req,res,next){
-  res.render("librarianSearch",{layout: "layoutLibrarian"});
+  res.render("librarianSearch",{layout: "layout",username: "Cô Thủ Thư", librarian: true});
 });
 router.get('/thuthuadd',function(req,res,next){
-  res.render("librarianAddAccount",{layout: "layoutLibrarian"});
+  res.render("librarianAddAccount",{layout: "layout",username: "Cô Thủ Thư", librarian: true});
 });
 router.get('/thuthumuon',function(req,res,next){
-  res.render("librarianBorrowing",{layout: "layoutLibrarian"});
+  res.render("librarianBorrowing",{layout: "layout",username: "Cô Thủ Thư", librarian: true});
 });
 router.get('/themsach',function(req,res,next){
-  res.render("librarianAddBooks",{layout: "layoutLibrarian"});
+  res.render("librarianAddBooks",{layout: "layout",username: "Cô Thủ Thư", librarian: true});
 });
 router.get('/yeucaumua',function(req,res,next){
-  res.render("librarianBuy",{layout: "layoutLibrarian"});
+  res.render("librarianBuy",{layout: "layout",username: "Cô Thủ Thư", librarian: true});
 });
 router.get("/trasach",function(req,res,next){
-  res.render("librarianGiveBack",{layout:"layoutLibrarian"});
+  res.render("librarianGiveBack",{layout:"layout",username: "Cô Thủ Thư", librarian: true});
 });
 router.get('/propose',function(req,res,next){
-  res.render("professorBookPropose",{layout:"layoutLibrarian"});
+  res.render("professorBookPropose",{layout:"layout",username: "Cô Thủ Thư", librarian: true});
 });
 module.exports = router;

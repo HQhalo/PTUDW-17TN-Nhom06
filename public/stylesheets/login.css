@@ -1,0 +1,46 @@
+.login {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login .intro {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.login .credentials {
+    display: flex;
+    flex-direction: column;
+}
+
+.login .credentials input {
+    margin: 5px;
+    padding: 4px 10px;
+}
+
+.login .submit-btn {
+    border-radius: 4px;
+    width: fit-content;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 16px;
+    align-self: center;
+}
+.login a{
+    color: black;
+}
+.login .form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 400px;
+    height: 250px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 8px;
+    padding: 10px 20px;
+}

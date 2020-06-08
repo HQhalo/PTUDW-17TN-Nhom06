@@ -1,0 +1,24 @@
+<link rel='stylesheet' href='/stylesheets/components/headline.css' />
+<link rel='stylesheet' href='/stylesheets/login.css' />
+{{> headline}}
+<div class='login'>
+    <form class='form-login' method='post'>
+        <div class='intro'>
+            <span class='text-nowrap'>
+                Hệ thống thư viện
+            </span>
+            <br>
+            <span class='text-nowrap'>
+                Khoa CNTT
+            </span>
+        </div>
+        <section class='credentials'>
+            <input type="text" placeholder="Tên đăng nhập"/>
+            <input type="password" placeholder="Mật khẩu"/>
+        </section>
+        {{!-- <input class='submit-btn background-color-main' type="submit" value="Đăng nhập"/> --}}
+        <a href="/" class='submit-btn background-color-main'>Đăng Nhập</a>
+        <a href="/users/thuthu" class='submit-btn background-color-main'>Cô Thủ Thư thì vào đây</a>
+        
+    </form>
+</div>

@@ -1,2 +1,11 @@
-<h1>Đây là trang chủ</h1>
-<p>Welcome to thư viện trường</p>
+<link rel='stylesheet' href='/stylesheets/components/headline.css' />
+<link rel='stylesheet' href='/stylesheets/home.css' />
+{{> headline}}
+<div class='show-page row'>
+    <div class='col-3 left'>
+        {{> categories}}
+    </div>
+    <div class='col-9 right'>
+        {{> booksCollection}}
+    </div>
+</div>

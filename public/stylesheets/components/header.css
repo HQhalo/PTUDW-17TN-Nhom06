@@ -1,0 +1,81 @@
+.header {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .left {
+    display: flex;
+    
+}
+
+.header .left .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+}
+
+.header .left .search input {
+    width: 400px;
+    border-radius: 8px;
+    margin-right: 8px;
+}
+
+.header .right .login-btn {
+    border-radius: 8px;
+    background-color: white;
+    padding: 5px;
+    cursor: pointer;
+    color: black;
+}
+
+.header .right .avatar {
+    margin-left: 8px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.drop-btn {
+    background-color: transparent;
+    border: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 3;
+    right: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

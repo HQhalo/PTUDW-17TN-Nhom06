@@ -1,0 +1,17 @@
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-green {
+    color: #22B345;
+}

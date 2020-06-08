@@ -1,0 +1,26 @@
+.comment-box {
+    width: 100%;
+}
+
+.comment-box form {
+    display: flex;
+    align-items: center;
+}
+
+.comment-box form .content {
+    flex-grow: 1;
+    border-radius: 8px;
+    background-color: #F2F2F2;
+    padding: 16px 10px;
+    border: 1px solid #d4d1d1;
+}
+
+.comment-box form .btn-comment {
+    width: 0; 
+    height: 0; 
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 20px solid #26E3EF;
+    margin-left: 16px;
+    border-radius: 42px;
+}

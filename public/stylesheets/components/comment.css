@@ -1,0 +1,24 @@
+.comment .author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment .author .avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-bottom: 4px;
+}
+
+.comment .author .name {
+    margin: 0;
+    margin-top: 4px;
+}
+
+.comment .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}

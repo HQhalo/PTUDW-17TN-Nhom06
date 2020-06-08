@@ -1,0 +1,50 @@
+.books-collection {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.books-collection #sort-list {
+    position: absolute;
+    width: 100px;
+    top: -10px;
+    right: 10px;
+    border-radius: 4px;
+    background-color: #F2F3F5;
+}
+
+.books-collection .collection {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-auto-rows: 160px;
+    justify-content: space-around;
+    row-gap: 20px;
+}
+
+.books-collection .collection .book {
+    width: 105px;
+    height: 160px;
+    cursor: pointer;
+    color: black;
+}
+
+.books-collection .collection .book img {
+    width: 100%;
+    height: calc(100% - 20px);
+}
+
+.books-collection .collection .book .title {
+    margin: 5px 0 0 0;
+    width: 100%;
+    font-weight: bold;
+}
+
+.books-collection .paging nav ul {
+    margin: 0;
+}
