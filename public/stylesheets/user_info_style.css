@@ -40,3 +40,11 @@
 .style_card{
     padding: 4px 15px 4px 36px;
 }
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70px;
+    max-height: 90px;
+}
+
