@@ -27,4 +27,13 @@ router.get("/trasach",function(req,res,next){
 router.get('/propose',function(req,res,next){
   res.render("professorBookPropose",{layout:"layout",username: "Cô Thủ Thư", librarian: true});
 });
+
+router.get('/info',function(req,res,next){
+  res.render("info",{layout:"layout",username: "Hoàng Hào Quang",librarian:false});
+});
+
+router.get('/professor',function(req,res,next){
+  res.render("professorBookPropose",{layout:"layout",username: "Hoàng Hào Quang",librarian:false});
+});
+
 module.exports = router;
