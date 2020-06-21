@@ -9,7 +9,7 @@
         <form class="search form-inline ">
             <input class="form-control form-control-sm" type="text" placeholder="Tìm kiếm"
                 aria-label="Search">
-            <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <svg style="cursor: pointer" class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                 <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
             </svg>
@@ -20,19 +20,21 @@
         {{#if username}}
         <span class='username text-bold'>{{username}}</span>
         <div class="dropdown">
-            <img class='avatar' src='https://cdn1.tuoitre.vn/zoom/600_315/2019/5/8/avatar-publicitystill-h2019-1557284559744252594756-crop-15572850428231644565436.jpg' alt='avatar' />
+            <img class='avatar' src={{avatar}} alt='avatar' />
             <button class="drop-btn"></button>
             <div class="dropdown-content">
+                <a href="/user/info">Thông tin cá nhân</a>
                 {{#unless librarian}}
-                <a href="/users/info">Thông tin cá nhân</a>
-                <a href="/users/professor">Đề xuất mua sách</a>
+                <a href="/user/professor/propose">Đề xuất mua sách</a>
                 {{/unless}}
-                <a href="/">Đăng xuất</a>
+                {{#if librarian}}
+                <a href="/user/librarian/thuthu">Quản lý</a>
+                {{/if}}
+                <a href="/auth/logout">Đăng xuất</a>
             </div>
         </div>
         {{else}}
-        <a class='login-btn' href='/login'>Đăng nhập</a>
+        <a class='login-btn' href='/auth/login'>Đăng nhập</a>
         {{/if}}
-
     </div>
 </div>

@@ -1,0 +1,9 @@
+const ROLE_USER = 'ROLE_USER';
+const ROLE_LIBRARIAN = 'ROLE_LIBRARIAN';
+const ROLE_PROFESSOR = 'ROLE_PROFESSOR';
+
+module.exports = {
+    ROLE_USER,
+    ROLE_LIBRARIAN,
+    ROLE_PROFESSOR
+}
