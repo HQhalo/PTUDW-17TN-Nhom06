@@ -6,7 +6,7 @@ const insert = (user, cb) => {
 
         const {id, password, name, phone, email, avatar, role} = user;
         // Use the connection
-        connection.query("insert into user (id, password, name, phone, email, avatar, role) values (?,?,?,?,?,?,?)",
+        connection.query("insert into user_tb (id, password, name, phone, email, avatar, role) values (?,?,?,?,?,?,?)",
             [id, password, name, phone, email, avatar, role],
             function (error, results, fields) {
                 // When done with the connection, release it.
@@ -21,7 +21,7 @@ const findById = (id, cb) => {
     pool.getConnection(function(err, connection) {
         if (err) throw err;
 
-        connection.query('select * from user where userId = ?',
+        connection.query('select * from user_tb where userId = ?',
             [id],
             function (error, results, fields) {
                 connection.release();

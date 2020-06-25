@@ -10,7 +10,7 @@ var pool  = mysql.createPool({
 });
 // check if connection's been successful
 
-pool.query('select name from user limit 1', (error, results, fields) => {
+pool.query('select name from user_tb limit 1', (error, results, fields) => {
     if (error) {
         console.log('MySQL connection error', error);
         throw error;
