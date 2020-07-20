@@ -1,5 +1,5 @@
 
-// authorization
+// authorization (role hierarchy)
 const ROLE_USER = {};
 const ROLE_LIBRARIAN = {
     ROLE_USER
@@ -18,6 +18,9 @@ const checkRole = (userRole, role) => {
     if (userRole === role)
         return true;
     
+    if (ROLES[userRole] == undefined)
+        return false;
+
     return Object.keys(ROLES[userRole]).some(uRole => checkRole(uRole, role));
 }
 // -----------------------------------------------------------------------------
@@ -32,9 +35,8 @@ const checkAuthenticated = (req, res, next) => {
 
 const hasRole = (role) => {
     return (req, res, next) => {
-        if (req.isAuthenticated() && checkRole(req.user.role, `ROLE_${role}`)) {
-            next();
-            return;
+        if (req.isAuthenticated() && checkRole(req.user.roleName, `ROLE_${role}`)) {
+            return next();
         }
         res.redirect('/');
     }

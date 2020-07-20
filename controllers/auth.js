@@ -7,7 +7,7 @@ const login = passport.authenticate('local',
     });
 
 const loginSuccessHanlder = (req, res) => {
-    if (req.user.role === ROLE_LIBRARIAN) {
+    if (req.user.roleName === ROLE_LIBRARIAN) {
         return res.redirect('/user/librarian/thuthu');
     }
     res.redirect('/');

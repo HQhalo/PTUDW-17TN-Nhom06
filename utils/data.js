@@ -7,7 +7,7 @@ const populateHeader = (user) => {
     return {
         username: user.name,
         avatar: user.avatar,
-        librarian: user.role === ROLE_LIBRARIAN
+        librarian: user.roleName === ROLE_LIBRARIAN
     };
 }
 

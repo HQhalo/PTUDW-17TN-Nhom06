@@ -1,8 +1,10 @@
 var mysql = require('mysql');
 var passwordUtil = require('./utils/password');
+var axios = require('axios');
 
 // create mysql connection pool
 var pool  = mysql.createPool({
+    connectionLimit : 2,
     host            : process.env.MYSQL_HOST,
     user            : process.env.MYSQL_USER,
     password        : process.env.MYSQL_PASSWORD,
@@ -18,15 +20,15 @@ pool.query('select name from user_tb limit 1', (error, results, fields) => {
     console.log('MySQL server successfully connected');
 });
 
-// pool.query("insert into user (userId, password, name, phone, email, avatar, role) values (?,?,?,?,?,?,?)",
+// pool.query("insert into user_tb (userId, password, name, phone, email, avatar, role) values (?,?,?,?,?,?,?)",
 //     [
 //         69,
 //         passwordUtil.hashPassword('1'),
 //         'Ân đuồi bầu',
 //         '0123456789',
 //         'anduoibau@gmail.com',
-//         'https://scontent.fsgn4-1.fna.fbcdn.net/v/t1.0-9/53811028_2233206770266706_397922354832867328_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=inYcAB6sWbMAX9ZKJE7&_nc_ht=scontent.fsgn4-1.fna&oh=d5e9240dd3eeeafcc5d14788a2ff9676&oe=5F14F789',
-//         'ROLE_USER'
+//         'https://www.biography.com/.image/c_fill%2Ccs_srgb%2Cfl_progressive%2Ch_400%2Cq_auto:good%2Cw_620/MTE5NTU2MzE2NDIwOTk4NjY3/bruce-lee-9542095-1-402.jpg',
+//         1
 //     ],
 //     function (error, results, fields) {
 //         // pass result to callback function
@@ -37,7 +39,7 @@ pool.query('select name from user_tb limit 1', (error, results, fields) => {
 //         console.log('Added user Ân đuồi bầu');
 //     });
 
-// pool.query("insert into user (userId, password, name, phone, email, avatar, role) values (?,?,?,?,?,?,?)",
+// pool.query("insert into user_tb (userId, password, name, phone, email, avatar, role) values (?,?,?,?,?,?,?)",
 //     [
 //         1,
 //         passwordUtil.hashPassword('1'),
@@ -45,7 +47,7 @@ pool.query('select name from user_tb limit 1', (error, results, fields) => {
 //         '0123456789',
 //         'cothuthu@gmail.com',
 //         'https://cdn2.iconfinder.com/data/icons/circle-avatars-1/128/039_girl_avatar_profile_woman_headband-512.png',
-//         'ROLE_LIBRARIAN'
+//         2
 //     ],
 //     function (error, results, fields) {
 //         // pass result to callback function
@@ -56,7 +58,7 @@ pool.query('select name from user_tb limit 1', (error, results, fields) => {
 //         console.log('Added cô thủ thư');
 //     });
 
-// pool.query("insert into user (userId, password, name, phone, email, avatar, role) values (?,?,?,?,?,?,?)",
+// pool.query("insert into user_tb (userId, password, name, phone, email, avatar, role) values (?,?,?,?,?,?,?)",
 //     [
 //         2,
 //         passwordUtil.hashPassword('1'),
@@ -64,7 +66,7 @@ pool.query('select name from user_tb limit 1', (error, results, fields) => {
 //         '0123456789',
 //         'ngaigiaosu@gmail.com',
 //         'https://st2.depositphotos.com/1007566/12301/v/950/depositphotos_123013242-stock-illustration-avatar-man-cartoon.jpg',
-//         'ROLE_PROFESSOR'
+//         3
 //     ],
 //     function (error, results, fields) {
 //         // pass result to callback function
@@ -74,5 +76,41 @@ pool.query('select name from user_tb limit 1', (error, results, fields) => {
 //         }
 //         console.log('Added ngài giáo sư');
 //     });
+
+// add books to db base on search term
+// const searchTerm = 'literature';
+// axios.get('https://www.googleapis.com/books/v1/volumes?q=' + searchTerm)
+//   .then(function (response) {
+//     // handle success
+//     for (let item of response.data.items) {
+//         const info = item.volumeInfo;
+//         if (!info.industryIdentifiers || info.industryIdentifiers.length !== 2)
+//             continue;
+//         const isbn10id = info.industryIdentifiers[0].identifier.length === 10 ? 0 : 1;
+//         pool.query("insert into bookDescription values (default,?,?,?,?,?,?,?,?)",
+//         [
+//             info.industryIdentifiers[isbn10id].identifier,
+//             info.industryIdentifiers[1 - isbn10id].identifier,
+//             info.title,
+//             info.description,
+//             info.publishedDate ? info.publishedDate.substring(0,4) : '1999',
+//             info.publisher,
+//             1,
+//             info.imageLinks.thumbnail
+//         ],
+//         function (error, results, fields) {
+//             // pass result to callback function
+//             if (error) {
+//                 console.log('Error inserting ', error)
+//                 return;
+//             }
+//             console.log('Added');
+//         });
+//     }
+//   })
+//   .catch(function (error) {
+//     // handle error
+//     console.log(error);
+//   });
 
 module.exports = pool;

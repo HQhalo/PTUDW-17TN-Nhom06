@@ -21,7 +21,7 @@ const findById = (id, cb) => {
     pool.getConnection(function(err, connection) {
         if (err) throw err;
 
-        connection.query('select * from user_tb where userId = ?',
+        connection.query('SELECT u.*, role.name as roleName FROM user_tb as u JOIN role on u.role = role.id where userId = ?',
             [id],
             function (error, results, fields) {
                 connection.release();
