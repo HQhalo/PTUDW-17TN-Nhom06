@@ -2,18 +2,16 @@ var express = require('express');
 var router = express.Router();
 const { populateHeader } = require('../../utils/data');
 const authMiddleware = require('../../middlewares/auth');
+const libController = require('../../controllers/librarianController')
+// router.use(authMiddleware.hasRole('LIBRARIAN'));
 
-router.use(authMiddleware.hasRole('LIBRARIAN'));
-
-router.get('/thuthu', function (req, res, next) {
-    res.render("librarianSearch", { layout: "layout", ...populateHeader(req.user) });
-});
+router.get('/thuthu',libController.searchUser );
+ 
+router.post('/thuthuadd',libController.addAccount);
 router.get('/thuthuadd', function (req, res, next) {
     res.render("librarianAddAccount", { layout: "layout", ...populateHeader(req.user) });
 });
-router.get('/thuthumuon', function (req, res, next) {
-    res.render("librarianBorrowing", { layout: "layout", ...populateHeader(req.user) });
-});
+router.get('/thuthumuon', libController.borrowBooks);
 router.get('/themsach', function (req, res, next) {
     res.render("librarianAddBooks", { layout: "layout", ...populateHeader(req.user) });
 });

@@ -4,7 +4,7 @@ var axios = require('axios');
 
 // create mysql connection pool
 var pool  = mysql.createPool({
-    connectionLimit : 2,
+    connectionLimit : 1,
     host            : process.env.MYSQL_HOST,
     user            : process.env.MYSQL_USER,
     password        : process.env.MYSQL_PASSWORD,
@@ -18,8 +18,18 @@ pool.query('select name from user_tb limit 1', (error, results, fields) => {
         throw error;
     }
     console.log('MySQL server successfully connected');
-});
+}); 
 
+// pool.query("INSERT INTO borrowRequest(userId,bookDescriptionId,isLent) values(?,?,?)",
+//             [69,2,false],
+//             function (error, results, fields) {
+//             if (error) {
+//                 console.log('Error', error)
+//                 return;
+//             }
+//             console.log('add borrow request');
+//         });
+       
 // pool.query("insert into user_tb (userId, password, name, phone, email, avatar, role) values (?,?,?,?,?,?,?)",
 //     [
 //         69,
