@@ -1,5 +1,25 @@
 const passport = require('passport')
 const {ROLE_LIBRARIAN} = require('../constants/roles');
+const {getListBooks, getNumBooks} = require('../services/book');
+const {getRandomInt} = require('../utils/common');
+
+const loginPage = function(req, res, next) {
+    getNumBooks((errNum, resNum) => {
+        if (errNum) {
+            return next(err);
+        }
+
+        const randomOffset = getRandomInt(0, resNum - 3);
+        getListBooks(randomOffset, 3, (err, listRandomResult) => {
+            if (err) {
+                return next(err);
+            }
+            res.render('login', {
+                features: listRandomResult
+            });
+        });
+    });
+}
 
 const login = passport.authenticate('local',
     {
@@ -20,6 +40,7 @@ const logout = function(req, res, next) {
 }
 
 module.exports = {
+    loginPage,
     login,
     loginSuccessHanlder,
     logout

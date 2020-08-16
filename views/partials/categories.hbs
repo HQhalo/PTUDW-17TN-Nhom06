@@ -1,10 +1,10 @@
 <link rel='stylesheet' href='/stylesheets/components/categories.css' />
 <div class='categories background-color-main'>
-    <a href='/' class='category chosen'>All</a>
-    <a href='/' class='category'>Sách nổi bật</a>
-    <a href='/' class='category'>Mới phát hành</a>
-    <a href='/' class='category'>Java</a>
-    <a href='/' class='category'>Machine Learning</a>
-    <a href='/' class='category'>C/C++</a>
-    <a href='/' class='category'>Kinh tế</a>
+    {{#each tags}}
+        {{#if isChosen}}
+            <a href='?tag={{tagId}}' class='category chosen'>{{tagName}}</a>
+        {{else}}
+            <a href='?tag={{tagId}}' class='category'>{{tagName}}</a>
+        {{/if}}
+    {{/each}}
 </div>

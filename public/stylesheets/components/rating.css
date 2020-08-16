@@ -4,16 +4,19 @@
     direction: rtl;
 }
 
-.rating > span {
+.rating > .star {
     display: inline-block;
     position: relative;
     width: .7em;
+    cursor: pointer;
 }
 
-.rating > span.active:before,
-.rating > span.active ~ span:before,
-.rating.for-rate > span:hover:before,
-.rating.for-rate > span:hover ~ span:before {
+.rating > .star.active:before,
+.rating > .star.active ~ .star:before,
+.rating.for-rate > .star.active:before,
+.rating.for-rate > .star.active ~ .star:before,
+.rating.for-rate > .star:hover:before,
+.rating.for-rate > .star:hover ~ .star:before {
     content: "\2605";
     position: absolute;
     color: #F1C40F;

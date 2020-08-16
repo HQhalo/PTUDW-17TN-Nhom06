@@ -4,7 +4,7 @@ var axios = require('axios');
 
 // create mysql connection pool
 var pool  = mysql.createPool({
-    connectionLimit : 2,
+    connectionLimit : 1,
     host            : process.env.MYSQL_HOST,
     user            : process.env.MYSQL_USER,
     password        : process.env.MYSQL_PASSWORD,

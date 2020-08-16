@@ -1,52 +1,18 @@
 <link rel='stylesheet' href='/stylesheets/components/booksCollection.css' />
 <div class='books-collection'>
     <div class='collection'>
-        <a class='book' href='/book/1'>
-            <img src="/images/books/1.jpg" alt="Book cover">
-            <p class='title text-ellipsis'>Đệ nhất kiếm tiền tiền tiền</p>
-        </a>
-        <a class='book' href='/book/1'>
-            <img src="/images/books/1.jpg" alt="Book cover">
-            <p class='title text-ellipsis'>Đệ nhất kiếm tiền tiền tiền</p>
-        </a>
-        <a class='book' href='/book/1'>
-            <img src="/images/books/1.jpg" alt="Book cover">
-            <p class='title text-ellipsis'>Đệ nhất kiếm tiền tiền tiền</p>
-        </a>
-        <a class='book' href='/book/1'>
-            <img src="/images/books/1.jpg" alt="Book cover">
-            <p class='title text-ellipsis'>Đệ nhất kiếm tiền tiền tiền</p>
-        </a>
-        <a class='book' href='/book/1'>
-            <img src="/images/books/1.jpg" alt="Book cover">
-            <p class='title text-ellipsis'>Đệ nhất kiếm tiền tiền tiền</p>
-        </a>
-        <a class='book' href='/book/1'>
-            <img src="/images/books/1.jpg" alt="Book cover">
-            <p class='title text-ellipsis'>Đệ nhất kiếm tiền tiền tiền</p>
-        </a>
-        <a class='book' href='/book/1'>
-            <img src="/images/books/1.jpg" alt="Book cover">
-            <p class='title text-ellipsis'>Đệ nhất kiếm tiền tiền tiền</p>
-        </a>
-        <a class='book' href='/book/1'>
-            <img src="/images/books/1.jpg" alt="Book cover">
-            <p class='title text-ellipsis'>Đệ nhất kiếm tiền tiền tiền</p>
-        </a>
-        <a class='book' href='/book/1'>
-            <img src="/images/books/1.jpg" alt="Book cover">
-            <p class='title text-ellipsis'>Đệ nhất kiếm tiền tiền tiền</p>
-        </a>
-        <a class='book' href='/book/1'>
-            <img src="/images/books/1.jpg" alt="Book cover">
-            <p class='title text-ellipsis'>Đệ nhất kiếm tiền tiền tiền</p>
-        </a>
+        {{#each books}}
+            <a class='book' href='/book/{{bookDescriptionId}}'>
+                <img src='{{imgUrl}}' alt="Book cover">
+                <p class='title text-ellipsis'>{{title}}</p>
+            </a>
+        {{/each}}
     </div>
     <div class='paging'>
-        {{> pagination}}
+        {{> pagination }}
     </div>
-    <select id="sort-list" name="sortList">
+    {{!-- <select id="sort-list" name="sortList">
         <option value="a-z">a-z</option>
         <option value="z-a">z-a</option>
-    </select>
+    </select> --}}
 </div>
