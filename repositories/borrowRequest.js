@@ -15,11 +15,11 @@ const insert = (borrowRequest, next)=>{
     
 }
 
-const findBookDescByUserId = (userId,next) =>{
+const findBookDescFromBorrowRequestByUserId = (userId,next) =>{
     pool.getConnection(function(err, connection) {
         if (err) throw err; // not connected!
 
-        connection.query("SELECT br.bookDescriptionId , bd.title FROM borrowRequest br LEFT JOIN bookDescription bd ON br.bookDescriptionId = bd.bookDescriptionId WHERE br.userId = ? AND br.isLent = ?",
+        connection.query("SELECT br.bookDescriptionId , bd.title , bd.publisher, bd.imgUrl FROM borrowRequest br LEFT JOIN bookDescription bd ON br.bookDescriptionId = bd.bookDescriptionId WHERE br.userId = ? AND br.isLent = ?",
         [userId,false],
         function (error, results, fields) {
             connection.release();
@@ -28,8 +28,21 @@ const findBookDescByUserId = (userId,next) =>{
     });
 }
 
+const updateIsLent = (userId,bookDescriptionId,next) =>{
+    pool.getConnection(function(err, connection) {
+        if (err) throw err; // not connected!
+
+        connection.query("UPDATE borrowRequest SET isLent = ? WHERE userId = ? AND bookDescriptionId = ?",
+        [true,userId,bookDescriptionId],
+        function (error, results, fields) {
+            connection.release();
+            next(error, results, fields);
+        });
+    });
+}
 
 module.exports = {
     insert,
-    findBookDescByUserId,
+    findBookDescFromBorrowRequestByUserId,
+    updateIsLent,
 }

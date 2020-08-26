@@ -56,15 +56,18 @@ const  borrowBooks = async (req, res, next) => {
             if ( results.length !== 0){
                 name.push(results[0].name);
 
-                borrowReeRepo.findBookDescByUserId(req.query.userId, (error, results, fields)=>{
+                borrowReeRepo.findBookDescFromBorrowRequestByUserId(req.query.userId, (error, results, fields)=>{
                     results.forEach(ele =>{
                         bookTitle.push(ele.title);
                     });
-                    console.log("[INFO] " + name);
-                    console.log("[INFO] " + bookTitle);
+                    if ( results.length !== 0){
+                        console.log("[INFO] " + results[0]['publisher']);
+                    }
+
                     res.render("librarianBorrowing", { layout: "layout", ...populateHeader(req.user),
                         name: name,
-                        title: bookTitle
+                        borrowingBooks: results,
+                        userId: req.query.userId,
                     });
                 });
 
