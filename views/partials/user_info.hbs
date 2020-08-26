@@ -3,25 +3,25 @@
         <div class="form-group row">
             <label for="MSSV" class="col-sm-3 col-form-label">MSSV</label>
             <div class="col-sm-9">
-                <input type="text" readonly="" class="form-control-plaintext" id="MSSV" value="1712701">
+                <input type="text" readonly="" class="form-control-plaintext" id="MSSV" value={{info.id}}>
             </div>
         </div>
         <div class="form-group row">
             <label for="userName" class="col-sm-3 col-form-label">Họ và tên</label>
             <div class="col-sm-9">
-                <input type="text" readonly="" class="form-control-plaintext" id="userName" value="Bảo râu xì">
+                <input type="text" readonly="" class="form-control-plaintext" id="userName" value='{{info.name}}'>
             </div>
         </div>
         <div class="form-group row">
             <label for="phoneNumber" class="col-sm-3 col-form-label">Số điện thoại</label>
             <div class="col-sm-9">
-                <input type="tel" class="form-control" id="phoneNumber" value="0123456789">
+                <input type="tel" class="form-control" id="phoneNumber" value={{info.phone}}>
             </div>
         </div>
         <div class="form-group row">
             <label for="email" class="col-sm-3 col-form-label">Email</label>
             <div class="col-sm-9">
-                <input type="email" class="form-control" id="email" value="quanghao@gmail.com">
+                <input type="email" class="form-control" id="email" value={{info.email}}>
             </div>
         </div>
         <div class="form-group row">

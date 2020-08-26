@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const { populateHeader } = require('../../utils/data');
 const authMiddleware = require('../../middlewares/auth');
 
 const studentRouter = require('./student');
@@ -11,9 +10,8 @@ router.use('/student', studentRouter);
 router.use('/librarian', librarianRouter);
 router.use('/professor', professorRouter);
 
+var {infomation} = require('../../controllers/info');
 router.use(authMiddleware.hasRole('USER'));
-router.get('/info', function (req, res, next) {
-  res.render("info", { layout: "layout", ...populateHeader(req.user) });
-});
+router.get('/info', infomation);
 
 module.exports = router;
