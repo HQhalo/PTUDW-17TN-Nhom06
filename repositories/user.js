@@ -1,12 +1,13 @@
 var pool = require('../mysql');
-
+var passwordUtil = require('../utils/password');
 const insert = (user, cb) => {
     pool.getConnection(function(err, connection) {
         if (err) throw err; // not connected!
 
-        const {id, password, name, phone, email, avatar, role} = user;
+        var {id, password, name, phone, email, avatar, role} = user;
+        password = passwordUtil.hashPassword(password);
         // Use the connection
-        connection.query("insert into user_tb (id, password, name, phone, email, avatar, role) values (?,?,?,?,?,?,?)",
+        connection.query("insert into user_tb (userid, password, name, phone, email, avatar, role) values (?,?,?,?,?,?,?)",
             [id, password, name, phone, email, avatar, role],
             function (error, results, fields) {
                 // When done with the connection, release it.

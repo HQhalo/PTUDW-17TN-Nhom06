@@ -3,53 +3,95 @@
 
 <div style="margin-bottom: 10px;">Danh sách đăng kí mượn:</div>
 
-<div class="input-group mb-3 search-input" >
-  
-  <input type="text" class="form-control" placeholder="Tên người mượn" aria-label="Tìm kiếm" aria-describedby="basic-addon2">
-  <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button">Tìm kiếm</button>
-  </div>
-</div>
+<form class="input-group mb-3 search-input">
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-3 search-result-acc">
-            <ul style="list-style-type:none;">
-              <li>Hao Quang</li>
-            </ul>
-        </div>
-        <div class="col search-result-books" >
-            <ul style="list-style-type:none;">
-              <li>Dạy Làm Giàu</li>
-            </ul>
-        </div>
-    </div>
-    
-</div>
+  <input type="text" class="form-control" placeholder="Tên người mượn" aria-label="Tìm kiếm" name="userId"
+    aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <input class='btn btn-outline-secondary' type="submit" value="tìm kiếm" />
+  </div>
+</form>
+
 
 <form>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3 search-result-acc">
+        <ul style="list-style-type:none;">
+
+          <li>{{name}}</li>
+        </ul>
+      </div>
+      <div class="col search-result-books">
+        {{!-- <ul style="list-style-type:none;">
+        {{#each title}}
+        <li>{{this}}</li>
+        {{/each}}
+
+      </ul> --}}
+
+        <table class="table table-striped" style="position: relative;">
+          <thead>
+            <tr>
+              <th scope="col">Bìa</th>
+              <th scope="col">Tên Sách</th>
+              <th scope="col">Tác Giả</th>
+              <th scope="col">Ma Sach</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each borrowingBooks}}
+            <tr>
+              <td>
+                <img src={{this.imgUrl}}width="50px" height="70px" alt="">
+              </td>
+              <td>{{this.title}}</td>
+              <td>{{this.publisher}}</td>
+              <td><input type="text" name="" id=""></td>
+            </tr>
+            {{/each}}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Người Mượn</label>
     <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext" placeholder="abc">
+      <input type="text" readonly class="form-control-plaintext" value={{userId}}>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Ngày Mượn</label>
     <div class="col-sm-10">
-      <input type= "text" class="form-control" placeholder="dd/mm/yyyy">
+      <input type="text" class="form-control" id="dayBorrow">
     </div>
   </div>
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Ngày Trả</label>
     <div class="col-sm-10">
-      <input type= "text" class="form-control" placeholder="dd/mm/yyyy">
+      <input type="text" class="form-control" id="dayReturn">
+    </div>
+  </div>
+
+
+  <div class="form-group row float-right">
+    <div class="col-sm-10">
+      <button type="submit" class="btn bg-danger text-white btn-nowrap">Cho Mượn</button>
     </div>
   </div>
 </form>
+<script>
+  var d = new Date();
+  var day = d.getDate();
+  var month = d.getMonth();
+  var year = d.getFullYear();
 
-<div class="form-group row float-right">
-      <div class="col-sm-10">
-        <button type="submit" class="btn bg-danger text-white btn-nowrap">Cho Mượn</button>
-      </div>
-</div>
+  document.getElementById("dayBorrow").value = day + '/' + (month + 1) + '/' + year;
+  document.getElementById("dayReturn").value = (day + 14) + '/' + (month + 1) + '/' + year;
+
+
+</script>
