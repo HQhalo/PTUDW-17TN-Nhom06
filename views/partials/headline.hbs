@@ -8,52 +8,58 @@
             </a>
         </div>
         <div class='promote col-8 h-100'>
-            <div id="promote-list" class="carousel slide h-100" data-ride="carousel">
+            <div id="promote-list" class="carousel slide h-100" data-ride="carousel" data-interval="5000">
                 <ol class="carousel-indicators">
                     <li data-target="#promote-list" data-slide-to="0" class="active"></li>
                     <li data-target="#promote-list" data-slide-to="1"></li>
                     <li data-target="#promote-list" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner h-100">
+                    {{#with features.[0]}}
                     <div class="carousel-item h-100 row active">
-                        <a href='/book/1' class="cover h-100">
-                            <img src="/images/books/1.jpg" alt="First slide">
+                        <a href='/book/{{bookDescriptionId}}' class="cover h-100">
+                            <img src="{{imgUrl}}" alt="First slide">
                         </a>
                         <div class='overview'>
-                            <div class='title text-ellipsis'>
-                                Đệ nhất kiếm tiền
+                            <div class='title'>
+                                {{title}}
                             </div>
-                            <div class='description text-ellipsis'>
-                                Sách mới xuất bản của nhà triết học Huấn Rose
-                            </div>
-                        </div>
-                    </div>                    
-                    <div class="carousel-item h-100 row">
-                        <a href='/book/1' class="cover h-100">
-                            <img src="/images/books/1.jpg" alt="Second slide">
-                        </a>
-                        <div class='overview'>
-                            <div class='title text-ellipsis'>
-                                Đệ nhất kiếm tiền
-                            </div>
-                            <div class='description text-ellipsis'>
-                                Sách mới xuất bản của nhà triết học Huấn Rose
+                            <div class='description'>
+                                {{description}}
                             </div>
                         </div>
                     </div>
+                    {{/with}}
+                    {{#with features.[1]}}
                     <div class="carousel-item h-100 row">
-                        <a href='/book/1' class="cover h-100">
-                            <img src="/images/books/1.jpg" alt="Second slide">
+                        <a href='/book/{{bookDescriptionId}}' class="cover h-100">
+                            <img src="{{imgUrl}}" alt="Second slide">
                         </a>
                         <div class='overview'>
-                            <div class='title text-ellipsis'>
-                                Đệ nhất kiếm tiền
+                            <div class='title'>
+                                {{title}}
                             </div>
-                            <div class='description text-ellipsis'>
-                                Sách mới xuất bản của nhà triết học Huấn Rose
+                            <div class='description'>
+                                {{description}}
                             </div>
                         </div>
                     </div>
+                    {{/with}}
+                    {{#with features.[2]}}
+                    <div class="carousel-item h-100 row">
+                        <a href='/book/{{bookDescriptionId}}' class="cover h-100">
+                            <img src="{{imgUrl}}" alt="Third slide">
+                        </a>
+                        <div class='overview'>
+                            <div class='title'>
+                                {{title}}
+                            </div>
+                            <div class='description'>
+                                {{description}}
+                            </div>
+                        </div>
+                    </div>
+                    {{/with}}
                 </div>
             </div>
         </div>

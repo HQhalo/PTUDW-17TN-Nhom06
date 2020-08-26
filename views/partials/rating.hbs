@@ -1,7 +1,21 @@
-<div class='rating'>
-    <span>☆</span>
-    <span>☆</span>
-    <span class='active'>☆</span>
-    <span>☆</span>
-    <span>☆</span>
-</div>
+{{#if forRate}}
+    <div class='rating for-rate'>
+        <span class='star' onclick="onStarClick(5)">☆</span>
+        <span class='star' onclick="onStarClick(4)">☆</span>
+        <span class='star' onclick="onStarClick(3)">☆</span>
+        <span class='star' onclick="onStarClick(2)">☆</span>
+        <span class='star' onclick="onStarClick(1)">☆</span>
+    </div>
+{{else}}
+    <div id='{{id}}' class='rating'>
+        {{#rating rate}}
+            {{#each stars}}
+                {{#if isReach}}
+                    <span class='star active'>☆</span>
+                {{else}}
+                    <span class='star'>☆</span>
+                {{/if}}
+            {{/each}}
+        {{/rating}}
+    </div>
+{{/if}}

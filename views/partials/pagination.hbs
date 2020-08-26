@@ -1,13 +1,28 @@
 <nav aria-label="Page navigation">
-<ul class="pagination justify-content-end">
-    <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
-    </li>
-    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-    </li>
-</ul>
+    <ul class="pagination justify-content-end">
+        {{#with pagination}}
+            {{#pagination currentPage totalPage pageSize uri tagId}}
+                {{#unless firstPageActive}}
+                    <li class="page-item">
+                        <a class="page-link" href="{{prevRef}}" tabindex="-1">Previous</a>
+                    </li>
+                {{/unless}}
+
+                {{#each pages}}
+                    {{#if isCurrent}}
+                        <li class="page-item active"><a class="page-link" href="{{ref}}">{{page}}</a></li>
+                    {{/if}}
+                    {{#unless isCurrent}}
+                        <li class="page-item"><a class="page-link" href="{{ref}}">{{page}}</a></li>
+                    {{/unless}}
+                {{/each}}
+
+                {{#unless lastPageActive}}
+                    <li class="page-item">
+                        <a class="page-link" href="{{nextRef}}">Next</a>
+                    </li>
+                {{/unless}}
+            {{/pagination}}
+        {{/with}}
+    </ul>
 </nav>

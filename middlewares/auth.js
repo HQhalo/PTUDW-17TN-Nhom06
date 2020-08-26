@@ -25,6 +25,14 @@ const checkRole = (userRole, role) => {
 }
 // -----------------------------------------------------------------------------
 
+const checkNotAuthenticated = (req, res, next) => {
+    if (!req.isAuthenticated()) {
+        next();
+        return;
+    }
+    res.redirect('/');
+}
+
 const checkAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
         next();
@@ -43,6 +51,7 @@ const hasRole = (role) => {
 }
 
 module.exports = {
+    checkNotAuthenticated,
     checkAuthenticated,
     hasRole
 }

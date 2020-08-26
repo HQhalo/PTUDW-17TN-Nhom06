@@ -81,12 +81,12 @@
     cursor: pointer;
 }
 
-.book .comment-section .panel .comments .comment {
-    margin-bottom: 24px;
+.book .description .panel .overview {
+    margin: 0;
 }
 
-.book .comment-section .panel .opinion {
-    margin-top: 36px;
+.book .comment-section .panel .comments .comment {
+    margin-bottom: 24px;
 }
 
 .book .comment-section .panel .opinion .area {

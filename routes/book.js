@@ -1,13 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const { populateHeader } = require('../utils/data');
 const authMiddleware = require('../middlewares/auth');
+const {viewBook} = require('../controllers/book');
 
 /* GET users listing. */
-router.use(authMiddleware.hasRole('USER'))
+// router.use(authMiddleware.hasRole('USER'))
 
-router.get('/:bookId', function(req, res, next) {
-    res.render('book', {...populateHeader(req.user)});
-});
+router.get('/:bookId', viewBook);
 
 module.exports = router;

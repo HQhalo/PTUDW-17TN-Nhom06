@@ -7,6 +7,7 @@
 .headline .promote .carousel .carousel-inner .carousel-item.active {
     display: flex;
     margin-left: 0;
+    flex-wrap: nowrap;
 }
 
 .headline .promote .carousel .carousel-inner .carousel-item .overview {
@@ -15,6 +16,11 @@
     justify-content: center;
     font-size: large;
     padding: 0 15px;
+}
+
+.headline .promote .carousel .carousel-inner .carousel-item .overview .description {
+    max-height: 42%;
+    overflow-y: auto;
 }
 
 .headline .promote .carousel .carousel-inner .carousel-item .overview .title {
@@ -52,4 +58,9 @@
     height: 10px;
     border-radius: 50%;
     margin: 0 5px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }

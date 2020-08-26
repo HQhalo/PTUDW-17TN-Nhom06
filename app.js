@@ -17,6 +17,9 @@ var userRouter = require('./routes/user');
 var authRouter = require('./routes/auth');
 var bookRouter = require('./routes/book');
 
+// configs
+require('./configs/handlebars');
+
 var app = express();
 
 // connect to mysql database
