@@ -2,7 +2,9 @@
 <link rel="stylesheet" href="/stylesheets/style_board_borrowing.css">
 
 <div style="margin-bottom: 10px;">Danh sách đăng kí mượn:</div>
-
+{{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+{{/if}}
 <form class="input-group mb-3 search-input">
 
   <input type="text" class="form-control" placeholder="Tên người mượn" aria-label="Tìm kiếm" name="userId"
@@ -13,7 +15,7 @@
 </form>
 
 
-<form>
+<form action="/user/librarian/thuthumuon" method="POST">
   <div class="container-fluid">
     <div class="row">
       <div class="col-3 search-result-acc">
@@ -22,7 +24,7 @@
           <li>{{name}}</li>
         </ul>
       </div>
-      <div class="col search-result-books">
+      <div style="overflow-y: scroll;" class="col search-result-books">
         {{!-- <ul style="list-style-type:none;">
         {{#each title}}
         <li>{{this}}</li>
@@ -36,19 +38,21 @@
               <th scope="col">Bìa</th>
               <th scope="col">Tên Sách</th>
               <th scope="col">Tác Giả</th>
-              <th scope="col">Ma Sach</th>
+              
             </tr>
           </thead>
           <tbody>
             {{#each borrowingBooks}}
             <tr>
               <td>
-                <img src={{this.imgUrl}}width="50px" height="70px" alt="">
+                <img src={{this.imgUrl}} width="50px" height="70px" alt="">
               </td>
               <td>{{this.title}}</td>
               <td>{{this.publisher}}</td>
-              <td><input type="text" name="" id=""></td>
+              
+             
             </tr>
+            <input type="text" readonly hidden name ="bookDescriptionId" value={{this.bookDescriptionId}}>
             {{/each}}
 
           </tbody>
@@ -61,13 +65,13 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Người Mượn</label>
     <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext" value={{userId}}>
+      <input type="text" readonly class="form-control-plaintext" name= 'userId' value={{userId}}>
     </div>
   </div>
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Ngày Mượn</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="dayBorrow">
+      <input type="text" class="form-control" name = 'borrowDate' id="dayBorrow">
     </div>
   </div>
   <div class="form-group row">
@@ -84,6 +88,7 @@
     </div>
   </div>
 </form>
+
 <script>
   var d = new Date();
   var day = d.getDate();
@@ -91,7 +96,7 @@
   var year = d.getFullYear();
 
   document.getElementById("dayBorrow").value = day + '/' + (month + 1) + '/' + year;
-  document.getElementById("dayReturn").value = (day + 14) + '/' + (month + 1) + '/' + year;
+  document.getElementById("dayReturn").value = (day) + '/' + (month + 1) + '/' + year;
 
 
 </script>

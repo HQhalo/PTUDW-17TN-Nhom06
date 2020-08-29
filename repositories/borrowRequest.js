@@ -34,15 +34,28 @@ const updateIsLent = (userId,bookDescriptionId,next) =>{
 
         connection.query("UPDATE borrowRequest SET isLent = ? WHERE userId = ? AND bookDescriptionId = ?",
         [true,userId,bookDescriptionId],
-        function (error, results, fields) {
+        function (error, results, fields) { 
             connection.release();
             next(error, results, fields);
         });
     });
 }
 
+const deleteRow = (userId,bookDescriptionId,next) =>{
+    pool.getConnection(function(err, connection) {
+        if (err) throw err; // not connected!
+
+        connection.query("DELETE FROM borrowRequest WHERE userId = ? AND bookDescriptionId = ?",
+        [userId,bookDescriptionId],
+        function (error, results, fields) { 
+            connection.release();
+            next(error, results, fields);
+        });
+    });
+};
 module.exports = {
     insert,
     findBookDescFromBorrowRequestByUserId,
     updateIsLent,
+    deleteRow,
 }

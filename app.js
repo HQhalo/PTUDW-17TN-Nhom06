@@ -25,6 +25,9 @@ var app = express();
 // connect to mysql database
 require('./mysql');
 
+//
+
+
 // passport setup
 passport.use(new LocalStrategy(
   function(username, password, done) {

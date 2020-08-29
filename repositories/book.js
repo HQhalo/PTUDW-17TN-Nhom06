@@ -85,6 +85,29 @@ const countAvailable = (bookDescriptionId, cb) => {
             });
     });
 }
+const getBookAvilable = (bookDescriptionId, cb) => {
+    pool.getConnection(function(err, connection) {
+        if (err) throw err;
+        connection.query("SELECT bookId FROM book WHERE bookDescriptionId = ? AND available = 1",
+        [bookDescriptionId],
+        function (error, results, fields) {
+            connection.release();
+            cb(error, results, fields);
+        });
+    });
+}
+const updateAvailable = (bookId,available, cb) => {
+    pool.getConnection(function(err, connection) {
+        if (err) throw err;
+
+        connection.query('UPDATE book SET available = ? WHERE bookId = ?',
+            [available,bookId],
+            function (error, results, fields) {
+                connection.release();
+                cb(error, results, fields);
+            });
+    });
+}
 
 const getRating = (bookDescriptionId, cb) => {
     pool.getConnection(function(err, connection) {
@@ -123,7 +146,30 @@ const getNumComments = (bookDescriptionId, cb) => {
             });
     });
 }
+const insertBook = (bookDescriptionId,next)=>{
+    pool.getConnection(function(err, connection) {
+        if (err) throw err; // not connected!
 
+        connection.query("INSERT INTO book  VALUES(default,?,?)",
+        [bookDescriptionId,true],
+        function (error, results, fields) {
+            connection.release();
+            next(error, results, fields);
+        });
+    });
+}
+const insertBookDescription = (bd,next)=>{
+    pool.getConnection(function(err, connection) {
+        if (err) throw err; // not connected!
+
+        connection.query("insert into bookDescription values (default,?,?,?,?,?,?,?,?)",
+        [bd.isbn10,bd.isbn13,bd.title,bd.description,bd.pubYear,bd.publisher,bd.tagId,bd.imgUrl],
+        function (error, results, fields) {
+            connection.release();
+            next(error, results, fields);
+        });
+    });
+}
 module.exports = {
     getListBooks,
     getListBooksByTag,
@@ -134,5 +180,9 @@ module.exports = {
     countAvailable,
     getRating,
     getListComments,
-    getNumComments
+    getNumComments,
+    getBookAvilable,
+    updateAvailable,
+    insertBook,
+    insertBookDescription,
 }
