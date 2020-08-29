@@ -1,7 +1,8 @@
 <link rel='stylesheet' href='/stylesheets/components/commentBox.css' />
 <div class='comment-box'>
-    <form method='post'>
-        <input class='content' type='text' placeholder="Trải nghiệm của bạn về cuốn sách này"/>
+    <form method='post' action='/book/{{bookDescription.bookDescriptionId}}/comment'>
+        <input id='star' style='display: none' name='star' type='number'/>
+        <input class='content' name='comment' type='text' placeholder="Trải nghiệm của bạn về cuốn sách này"/>
         <input  class='btn-comment' type='submit' value=''/>
     </form>
 </div>
