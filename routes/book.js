@@ -7,7 +7,7 @@ const {viewBook, borrowBook, commentBook} = require('../controllers/book');
 router.use(authMiddleware.hasRole('USER'))
 
 router.get('/:bookId', viewBook);
-router.get('/borrow/:bookId/:userId', borrowBook);
+router.get('/borrow/:bookId', borrowBook);
 router.post('/:bookId/comment', commentBook);
 
 module.exports = router;

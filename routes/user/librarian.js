@@ -4,7 +4,8 @@ const { populateHeader } = require('../../utils/data');
 const authMiddleware = require('../../middlewares/auth');
 const libController = require('../../controllers/librarianController');
 const upload = require("../../uploadImage");
-// router.use(authMiddleware.hasRole('LIBRARIAN'));
+
+router.use(authMiddleware.hasRole('LIBRARIAN'));
 
 router.get('/thuthu',libController.searchUser );
  

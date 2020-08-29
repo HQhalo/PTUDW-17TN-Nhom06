@@ -45,6 +45,7 @@ const viewBook = function(req, res, next) {
 }
 
 const borrowBook = function(req, res, next) {
+    console.log("[INFO] borrow book")
     const {bookId} = req.params;
     addBorrowRequest(req.user.userId, bookId, (addErr, addRes) => {
         res.redirect(`/book/${bookId}`);

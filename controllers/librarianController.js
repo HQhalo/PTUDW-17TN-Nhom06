@@ -208,6 +208,15 @@ const saveGiveBackBook = (req, res, next) => {
                 bookDescriptionId: req.body.bookDescriptionId[i],
             }
             console.log(bookReturn);
+            bookRepo.updateAvailable(bookReturn.bookId,true,(error, results, fields) => {
+                if (error) {
+                    console.log("[INFO] error");
+                    console.log(error);
+                }
+                else {
+                    console.log("[INFO] updated avilable");
+                }
+            });
             borrowRepo.updateReturned(bookReturn, (error, results, fields) => {
                 if (error) {
                     console.log("[INFO] error");
