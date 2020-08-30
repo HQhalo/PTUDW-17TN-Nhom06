@@ -6,150 +6,60 @@
                 <div class="col-2">Bìa</div>
                 <div class="col-3">Tên sách</div>
                 <div class="col-2">Tác giả</div>
-                <div class="col">Hạn trả</div>
+                <div class="col">trạng thái</div>
                 <div class="col-2">Tiền phạt</div>
             </div>
         </li>
+
+        {{#each books}}
         <li>
-            <div class="row item" style="text-align: center;" data-toggle="collapse" href="#collapse_info_book_item0"
-                role="button" aria-expanded="false" aria-controls="collapse_info_book_item0">
+            <div class="row item" style="text-align: center;" data-toggle="collapse" href="#collapse_info_book_item{{@index}}"
+                role="button" aria-expanded="false" aria-controls="collapse_info_book_item{{@index}}">
                 <div class="col-2">
-                    <img src="https://img0-placeit-net.s3-accelerate.amazonaws.com/uploads/stage/stage_image/22739/optimized_large_thumb_children-stories-book-cover-541__1_.jpg"
+                    <img src='{{imgUrl}}'
                         width="50px" height="70px" alt="">
                 </div>
                 <div class="col-3">
-                    Dạy làm giàu
+                    {{title}}
                 </div>
                 <div class="col-2">
-                    Bảo râu xì
+                    {{publisher}}
                 </div>
                 <div class="col">
-                    1/5/2020
+                    {{#if returned}}
+                        đã trả sách
+                    {{else}}
+                        chưa trả sách
+                    {{/if}}
                 </div>
                 <div class="col-2">
-                    10000đ
+                    {{fine}}
                 </div>
             </div>
-            <div class="collapse" id="collapse_info_book_item0">
+            <div class="collapse" id="collapse_info_book_item{{@index}}">
                 <div class="card card-body style_card">
+                    <div class="row">
+                        <div class="col-3" style="padding-left: 0px;">Ngày mượn:</div>
+                        <div class="col">{{date}}</div>
+                    </div>
                     <div class="row">
                         <span style="padding-right: 20px;">Thông tin thêm: </span>
                         <ul style="list-style-type: disc;">
-                            <li>Nhà xuất bản: Bảo râu xì</li>
-                            <li>Ngày xuất bản: 12/12/2012</li>
-                            <li>kích thước: 190 x 264 x 11 mm</li>
-                            <li>Số trang: 200 trang</li>
+
+                            <li>Năm xuất bản: {{pubYear}}</li>
+                            <li>isbn10: {{isbn10}}</li>
+                            <li>isbn13: {{isbn13}}</li>
                         </ul>
                     </div>
 
+                    
                     <div class="row">
-                        <div class="col-3" style="padding-left: 0px;">Số lần được gia hạn:</div>
-                        <div class="col">1</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8"></div>
-                        <button id="btn_giahan_0" class="btn btn-primary col-2" style="margin-right: 2px;"
-                            data-toggle="collapse" aria-controls="collapse_info_book_item0"
-                            href="#collapse_info_book_item0">Gia hạn</button>
-                        <button id="btn_trasach_0" class="btn btn-primary col">Trả sách</button>
+                        <div class="col-10"></div>
+                        <a href="/book/{{Id}}" class="col" ><button id="btn_trasach_{{@index}}" class="btn btn-primary">Xem sách</button></a>
                     </div>
                 </div>
             </div>
         </li>
-
-        <li>
-            <div class="row item" style="text-align: center;" data-toggle="collapse" href="#collapse_info_book_item1"
-                role="button" aria-expanded="false" aria-controls="collapse_info_book_item1">
-                <div class="col-2">
-                    <img src="https://img0-placeit-net.s3-accelerate.amazonaws.com/uploads/stage/stage_image/22739/optimized_large_thumb_children-stories-book-cover-541__1_.jpg"
-                        width="50px" height="70px" alt="">
-                </div>
-                <div class="col-3">
-                    Dạy làm giàu
-                </div>
-                <div class="col-2">
-                    Bảo râu xì
-                </div>
-                <div class="col">
-                    1/5/2020
-                </div>
-                <div class="col-2">
-                    10000đ
-                </div>
-            </div>
-            <div class="collapse" id="collapse_info_book_item1">
-                <div class="card card-body style_card">
-                    <div class="row">
-                        <span style="padding-right: 20px;">Thông tin thêm: </span>
-                        <ul style="list-style-type: disc;">
-                            <li>Nhà xuất bản: Bảo râu xì</li>
-                            <li>Ngày xuất bản: 12/12/2012</li>
-                            <li>kích thước: 190 x 264 x 11 mm</li>
-                            <li>Số trang: 200 trang</li>
-                        </ul>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-3" style="padding-left: 0px;">Số lần được gia hạn:</div>
-                        <div class="col">1</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8"></div>
-                        <button id="btn_giahan_0" class="btn btn-primary col-2" style="margin-right: 2px;"
-                            data-toggle="collapse" aria-controls="collapse_info_book_item1"
-                            href="#collapse_info_book_item1">Gia hạn</button>
-                        <button id="btn_trasach_0" class="btn btn-primary col">Trả sách</button>
-                    </div>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="row item" style="text-align: center;" data-toggle="collapse" href="#collapse_info_book_item2"
-                role="button" aria-expanded="false" aria-controls="collapse_info_book_item2">
-                <div class="col-2">
-                    <img src="https://img0-placeit-net.s3-accelerate.amazonaws.com/uploads/stage/stage_image/22739/optimized_large_thumb_children-stories-book-cover-541__1_.jpg"
-                        width="50px" height="70px" alt="">
-                </div>
-                <div class="col-3">
-                    Dạy làm giàu
-                </div>
-                <div class="col-2">
-                    Bảo râu xì
-                </div>
-                <div class="col">
-                    1/5/2020
-                </div>
-                <div class="col-2">
-                    10000đ
-                </div>
-            </div>
-            <div class="collapse" id="collapse_info_book_item2">
-                <div class="card card-body style_card">
-                    <div class="row">
-                        <span style="padding-right: 20px;">Thông tin thêm: </span>
-                        <ul style="list-style-type: disc;">
-                            <li>Nhà xuất bản: Bảo râu xì</li>
-                            <li>Ngày xuất bản: 12/12/2012</li>
-                            <li>kích thước: 190 x 264 x 11 mm</li>
-                            <li>Số trang: 200 trang</li>
-                        </ul>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-3" style="padding-left: 0px;">Số lần được gia hạn:</div>
-                        <div class="col">1</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8"></div>
-                        <button id="btn_giahan_0" class="btn btn-primary col-2" style="margin-right: 2px;"
-                            data-toggle="collapse" aria-controls="collapse_info_book_item2"
-                            href="#collapse_info_book_item2">Gia hạn</button>
-                        <button id="btn_trasach_0" class="btn btn-primary col">Trả sách</button>
-                    </div>
-                </div>
-            </div>
-        </li>
-
+        {{/each}}
     </ul>
 </div>

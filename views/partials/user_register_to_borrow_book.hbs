@@ -4,53 +4,38 @@
         <li class="name_row">
             <div class="row col_box">
                 <div class="col-2">Bìa</div>
-                <div class="col-3">Tên sách</div>
-                <div class="col-2">Tác giả</div>
+                <div class="col-4">Tên sách</div>
+                <div class="col-3">Tác giả</div>
                 <div class="col">Trạng thái</div>
-                <div class="col-2">Điều chỉnh</div>
             </div>
         </li>
-        <li>
+        {{#each books}}
+        <li onclick="location.href='/book/{{id}}';">
             <div class="row item" style="text-align: center;">
                 <div class="col-2">
-                    <img src="https://img0-placeit-net.s3-accelerate.amazonaws.com/uploads/stage/stage_image/22739/optimized_large_thumb_children-stories-book-cover-541__1_.jpg"
+                    <img src='{{imgUrl}}'
                         width="50px" height="70px" alt="">
                 </div>
-                <div class="col-3">
-                    Dạy làm giàu
+                <div class="col-4">
+                    {{title}}
                 </div>
-                <div class="col-2">
-                    Bảo râu xì
+                <div class="col-3">
+                    {{publisher}}
                 </div>
                 <div class="col">
-                    <span>có thể đến mượn vào</span>
-                    <span>sáng </span>
-                    <span>ngày 12/12/2020</span>
+                    có thế đến lấy
                 </div>
-                <div class="col-2">
-                    <button class="btn btn-secondary">điều chỉnh</button>
+                <!--{{#if available.total}}
+                <div class="col">
+                    sách đã đươc mượn hết
                 </div>
+                {{else}}
+                <div class="col">
+                    có thế đến lấy(còn {{available}})
+                </div>
+                {{/if}} -->
             </div>    
         </li>
-        <li>
-            <div class="row item" style="text-align: center;">
-                <div class="col-2">
-                    <img src="https://img0-placeit-net.s3-accelerate.amazonaws.com/uploads/stage/stage_image/22739/optimized_large_thumb_children-stories-book-cover-541__1_.jpg"
-                        width="50px" height="70px" alt="">
-                </div>
-                <div class="col-3">
-                    Dạy làm giàu
-                </div>
-                <div class="col-2">
-                    Bảo râu xì
-                </div>
-                <div class="col">
-                    <span>sách đã được mượn hết</span>
-                </div>
-                <div class="col-2">
-                    <button class="btn btn-secondary">điều chỉnh</button>
-                </div>
-            </div>    
-        </li>   
+        {{/each}}   
     </ul>
 </div>

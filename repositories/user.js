@@ -1,5 +1,6 @@
 var pool = require('../mysql');
 var passwordUtil = require('../utils/password');
+const password = require('../utils/password');
 const insert = (user, cb) => {
     pool.getConnection(function(err, connection) {
         if (err) throw err; // not connected!
@@ -31,7 +32,35 @@ const findById = (id, cb) => {
     });
 }
 
+const updateInfo = function(id,email,phone,cb) {
+    pool.getConnection(function(err,connection) {
+        if (err) throw err;
+
+        connection.query('UPDATE user_tb SET email=? , phone=? WHERE userId=?', 
+            [email,phone,id],
+            function (error, results,fields){
+                connection.release();
+                cb(error,results,fields);
+        });
+    });
+}
+
+const updatePassword = function(id, pass,cb){
+    pool.getConnection(function(err,connection){
+        if (err) throw err;
+
+        connection.query('UPDATE user_tb SET password=? WHERE userId=?',
+            [pass,id],
+            function (error, results,fields){
+                connection.release();
+                cb(error,results,fields);
+            });
+    });
+}
+
 module.exports = {
     insert,
-    findById
+    findById,
+    updateInfo,
+    updatePassword
 }

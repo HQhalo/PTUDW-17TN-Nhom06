@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 var passwordUtil = require('./utils/password');
 var axios = require('axios');
+const e = require('express');
 
 // create mysql connection pool
 var pool  = mysql.createPool({
@@ -20,8 +21,18 @@ pool.query('select name from user_tb limit 1', (error, results, fields) => {
     console.log('MySQL server successfully connected');
 }); 
 
+// pool.query("UPDATE user_tb SET email=? , phone=? WHERE userId=?", 
+//             ['an1@gmail.com','0123456789','69'],
+//             function (error, results, fields){
+//                if (error){
+//                    console.log('Error',error);
+//                    return;
+//                }
+//                console.log('success');
+//         });
+
 // pool.query("INSERT INTO borrowRequest(userId,bookDescriptionId,isLent) values(?,?,?)",
-//             [69,2,false],
+//             ['69','3',false],
 //             function (error, results, fields) {
 //             if (error) {
 //                 console.log('Error', error)

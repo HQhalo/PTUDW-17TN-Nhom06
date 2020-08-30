@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/stylesheets/style_user_info.css">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            {{> navs_vertical_student}}
+            <script>
+                item = document.getElementById("student-borrow");
+                item.classList.add("active");
+            </script>
+        </div>
+        <div class="col">
+            <div class="tab-content nav_vertical size_box">
+                {{> user_books_are_borrowed}}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
