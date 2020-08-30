@@ -53,6 +53,22 @@ const getListBooksWithTotalByTag = (tagId, offset, limit, cb) => {
     });
 }
 
+const getListBooksWithTotalByTerm = (searchterm, offset, limit, cb) => {      
+    bookRepo.getListBooksWithSearchterm(searchterm, offset, limit, (listErr, listRes, fields) => {
+        if (listErr) {
+            cb(listErr);
+        } else {
+            // bookRepo.getNumBooksByTerm(searchterm, (numErr, numRes) => {
+            //     if (numErr) {
+            //         return cb(numErr);
+            //     }
+            //     cb(null, {total: numRes[0].total, list: listRes});
+            // });
+            cb(null, {total: 23, list: listRes});
+        }
+    });
+}
+
 const getListTags = (cb) => {
     bookRepo.getListTags((listErr, listRes, fields) => {
         if (listErr) {
@@ -96,6 +112,38 @@ const getListCommentsWithTotal = (bookDescriptionId, offset, limit, cb) => {
     });
 }
 
+const checkSentRequest = (userId, bookDescriptionId, cb) => {
+    bookRepo.getNumPendingBorrowRequest(userId, bookDescriptionId, (err, res) => {
+        if (err) {
+            cb(err);
+        } else {
+            cb(null, res[0].total > 0);
+        }
+    });
+}
+
+const addBorrowRequest = (userId, bookDescriptionId, cb) => {
+    bookRepo.addBorrowRequest(userId, bookDescriptionId, (err, res) => {
+        cb(err, res);
+    });
+}
+
+const checkHaveBorrowed = (userId, bookDescriptionId, cb) => {
+    bookRepo.getNumBorrow(userId, bookDescriptionId, (err, res) => {
+        if (err) {
+            cb(err);
+        } else {
+            cb(null, res[0].total > 0);
+        }
+    });
+}
+
+const addComment = (userId, bookDescriptionId, content, starNo, cb) => {
+    bookRepo.addComment(userId, bookDescriptionId, content, starNo, (err, res) => {
+        cb(err, res);
+    });
+}
+
 module.exports = {
     getListBooksWithTotal,
     getListBooksWithTotalByTag,
@@ -103,5 +151,10 @@ module.exports = {
     getListTags,
     getNumBooks,
     getBookInfoById,
-    getListCommentsWithTotal
+    getListCommentsWithTotal,
+    checkSentRequest,
+    addBorrowRequest,
+    checkHaveBorrowed,
+    addComment,
+    getListBooksWithTotalByTerm
 }

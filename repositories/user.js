@@ -31,7 +31,17 @@ const findById = (id, cb) => {
             });
     });
 }
-
+const findByNameOrUserId = (name, cb) =>{
+    pool.getConnection(function(err, connection) {
+        if (err) throw err;
+        connection.query('SELECT userId,avatar,name FROM user_tb  u where u.name like ? OR u.userId = ?',
+        ["%"+name+"%",name],
+        function (error, results, fields) {
+            connection.release();
+            cb(error, results, fields);
+        });
+});
+}
 const updateInfo = function(id,email,phone,cb) {
     pool.getConnection(function(err,connection) {
         if (err) throw err;
@@ -62,5 +72,6 @@ module.exports = {
     insert,
     findById,
     updateInfo,
-    updatePassword
+    updatePassword,
+    findByNameOrUserId,
 }

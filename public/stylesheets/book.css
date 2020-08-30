@@ -81,6 +81,11 @@
     cursor: pointer;
 }
 
+.book .info .details .booking .booking-btn.disable{
+    background-color: lightgray;
+    cursor: auto;
+}
+
 .book .description .panel .overview {
     margin: 0;
 }

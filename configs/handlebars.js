@@ -1,12 +1,12 @@
 var hbs = require('hbs');
 
-hbs.registerHelper('pagination', function (currentPage, totalPage, pageSize, uri, tagId, options) {
+hbs.registerHelper('pagination', function (currentPage, totalPage, pageSize, uri, tagId, searchterm, options) {
     let context = {
         firstPageActive: false,
         pages: [],
         lastPageActive: false,
-        prevRef: `${uri}?${tagId ? `tag=${tagId}` : ''}offset=${(currentPage - 2) * pageSize}&limit=${pageSize}`,
-        nextRef: `${uri}?${tagId ? `tag=${tagId}` : ''}offset=${currentPage * pageSize}&limit=${pageSize}`
+        prevRef: `${uri}?${searchterm !== '' ? `searchterm=${searchterm}&` : ''}${tagId ? `tag=${tagId}&` : ''}offset=${(currentPage - 2) * pageSize}&limit=${pageSize}`,
+        nextRef: `${uri}?${searchterm !== '' ? `searchterm=${searchterm}&` : ''}${tagId ? `tag=${tagId}&` : ''}offset=${currentPage * pageSize}&limit=${pageSize}`
     };
 
     if (totalPage === 0 || currentPage === 1) {
@@ -17,7 +17,7 @@ hbs.registerHelper('pagination', function (currentPage, totalPage, pageSize, uri
         context.pages.push({
             page: i,
             isCurrent: i === currentPage,
-            ref: `${uri}?${tagId ? `tag=${tagId}&` : ''}offset=${(i - 1) * pageSize}&limit=${pageSize}`
+            ref: `${uri}?${searchterm !== '' ? `searchterm=${searchterm}&` : ''}${tagId ? `tag=${tagId}&` : ''}offset=${(i - 1) * pageSize}&limit=${pageSize}`
         });
     }
 
