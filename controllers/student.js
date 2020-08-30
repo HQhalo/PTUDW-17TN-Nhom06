@@ -91,10 +91,25 @@ const showHistoryBorrowBook = function(req,res,next) {
     });
 }
 
+const showComment = function(req,res,next){
+
+    userRepo.getComment(req.user.userId,function(error,listbook,fields){
+        if (error){
+            console.log("[USER] can't show Comment");
+        }
+        res.render("studentComment",{
+            layout: "layout", ...populateHeader(req.user),
+            books: listbook
+        });
+    });
+    
+}
+
 module.exports = {
     showInfo,
     updateInfo,
     changePassword,
     showBookDescRequest,
-    showHistoryBorrowBook
+    showHistoryBorrowBook,
+    showComment
 }

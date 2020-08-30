@@ -9,31 +9,38 @@
                 <div class="col-3">Tên sách</div>
                 <div class="col-2">Tác giả</div>
                 <div class="col">Trạng thái</div>
-                <div class="col-2">Ngày trả</div>
+                <div class="col-3">Ngày trả</div>
             </div>
         </li>
+        {{#each books}}
         <li>
-            <div class="row item" style="text-align: center;" data-toggle="collapse" href="#collapse_review_book_item0"
-                role="button" aria-expanded="false" aria-controls="collapse_review_book_item0">
+            <div class="row item" style="text-align: center;" data-toggle="collapse" href="#collapse_review_book_item{{@index}}"
+                role="button" aria-expanded="false" aria-controls="collapse_review_book_item{{@index}}">
                 <div class="col-2">
-                    <img src="https://img0-placeit-net.s3-accelerate.amazonaws.com/uploads/stage/stage_image/22739/optimized_large_thumb_children-stories-book-cover-541__1_.jpg"
+                    <img src='{{imgUrl}}'
                         width="50px" height="70px" alt="">
                 </div>
                 <div class="col-3">
-                    Dạy làm giàu
+                    {{title}}
                 </div>
                 <div class="col-2">
-                    Bảo râu xì
+                    {{pusblisher}}
                 </div>
                 <div class="col">
-                    đã đánh giá
+                    {{#if startNo}}
+                        đã đánh giá
+                    {{else}}
+                        chưa đánh giá
+                    {{/if}}
                 </div>
-                <div class="col-2">
-                    21/12/2020
+                <div class="col-3">
+                    {{date}}
                 </div>
             </div>
-            <div class="collapse" id="collapse_review_book_item0">
+            <div class="collapse" id="collapse_review_book_item{{@index}}">
                 <div class=" style_card card card-body style_card details">
+
+                    {{#if startNo}}
                     <div class="rating">
                         <span>☆</span>
                         <span>☆</span>
@@ -42,52 +49,15 @@
                         <span>☆</span>
                     </div>
                     <div class="content">
-                        Sách hay lắm ạ, nhờ có nó mà em đổi đời. Từ 1 con người ăn chơi nhảy múa lên ba, đòi nợ suốt
-                        ngày. Bây giờ em đang chăm chỉ làm lụng, ăn cơm nhà nước ngày ba bữa. Cảm ơn anh rất nhiều.
+                        {{content}}
                     </div>
-
+                    {{else}}
+                    <div class='content'>Trải nghiệm của bạn là như thế nào sau khi đọc cuốn sách này</div>
+                    <a href="/book/{{bdId}}" style="float:right;" ><button id="btn_trasach_{{@index}}" class="btn btn-primary">Chia sẽ ngay</button></a>
+                    {{/if}}
                 </div>
             </div>
         </li>
-        <li>
-            <div class="row item" style="text-align: center;" data-toggle="collapse" href="#collapse_review_book_item1"
-                role="button" aria-expanded="false" aria-controls="collapse_review_book_item1">
-                <div class="col-2">
-                    <img src="https://img0-placeit-net.s3-accelerate.amazonaws.com/uploads/stage/stage_image/22739/optimized_large_thumb_children-stories-book-cover-541__1_.jpg"
-                        width="50px" height="70px" alt="">
-                </div>
-                <div class="col-3">
-                    Dạy làm giàu
-                </div>
-                <div class="col-2">
-                    Bảo râu xì
-                </div>
-                <div class="col">
-                    Chưa đánh giá
-                </div>
-                <div class="col-2">
-                    21/12/2020
-                </div>
-            </div>
-            <div class="collapse" id="collapse_review_book_item1">
-                <div class="card card-body style_card details">
-                    <div class="rating">
-                        <div class="for-rate">
-                            <span>☆</span>
-                            <span>☆</span>
-                            <span>☆</span>
-                            <span>☆</span>
-                            <span>☆</span>
-                        </div>
-                    </div>
-                    <div class='comment-box'>
-                        <form method='post'>
-                            <input class='content' type='text' placeholder="Trải nghiệm của bạn về cuốn sách này" />
-                            <input class='btn-comment' type='submit' value='' />
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </li>
+        {{/each}}
     </ul>
 </div>

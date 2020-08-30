@@ -18,4 +18,6 @@ router.post('/changePassword', student.changePassword);
 router.get('/borrowRequest', student.showBookDescRequest);
 
 router.get('/borrow', student.showHistoryBorrowBook);
+
+router.get('/myReview', student.showComment);
 module.exports = router;
